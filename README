@@ -1,2 +1,7 @@
-TODO:
-    create fake mysqlplus-adapter using mysql_compat
+= ventouse
+
+Why vantouse? Why not?
+
+== to-do
+
+create fake mysqlplus-adapter using mysql_compat
