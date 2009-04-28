@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ventouse}
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ilia Ablamonov", "Artem Orlov"]
@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
       "lib/ventouse/module_declarations.rb",
       "lib/ventouse/mysql_compat.rb",
       "lib/ventouse/mysql_initializer.rb",
+      "lib/ventouse/rename_type_column.rb",
       "lib/ventouse/rescue_ext.rb",
       "lib/ventouse.rb"
   ]

@@ -1,0 +1,1 @@
+ActiveRecord::Base.inheritance_column = 'sti_type'
