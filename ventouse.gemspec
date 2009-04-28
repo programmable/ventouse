@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ventouse}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ilia Ablamonov", "Artem Orlov"]
@@ -12,6 +12,8 @@ Gem::Specification.new do |s|
   s.files = [
       "README",
       "lib/ventouse",
+      "lib/ventouse/ar_touch.rb",
+      "lib/ventouse/disable_transactions.rb",
       "lib/ventouse/filter_prefix.rb",
       "lib/ventouse/module_declarations.rb",
       "lib/ventouse/mysql_compat.rb",
