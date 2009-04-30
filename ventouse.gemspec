@@ -17,7 +17,6 @@ Gem::Specification.new do |s|
       "lib/ventouse/filter_prefix.rb",
       "lib/ventouse/module_declarations.rb",
       "lib/ventouse/mysql_compat.rb",
-      "lib/ventouse/mysql_initializer.rb",
       "lib/ventouse/rename_type_column.rb",
       "lib/ventouse/rescue_ext.rb",
       "lib/ventouse/resource_as_root.rb",
