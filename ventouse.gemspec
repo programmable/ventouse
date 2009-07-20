@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
       "lib/ventouse/ar_touch.rb",
       "lib/ventouse/disable_transactions.rb",
       "lib/ventouse/filter_prefix.rb",
+      "lib/ventouse/fix_partial_updates.rb",
       "lib/ventouse/module_declarations.rb",
       "lib/ventouse/mysql_compat.rb",
       "lib/ventouse/rename_type_column.rb",
