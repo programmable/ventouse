@@ -1,12 +1,18 @@
-require 'ventouse/ar_touch'
 require 'ventouse/filter_prefix'
-require 'ventouse/fix_partial_updates'
 require 'ventouse/module_declarations'
-require 'ventouse/rename_type_column'
 require 'ventouse/rescue_ext'
-require 'ventouse/resource_as_root'
 
-unless Gem.available? 'mysql' or Gem.available? 'mysqlplus'
+if defined? ActiveRecord
+  require 'ventouse/ar_touch'
+  require 'ventouse/fix_partial_updates'
+  require 'ventouse/rename_type_column'
+end
+
+if defined? ActionController
+  require 'ventouse/resource_as_root'
+end
+
+unless Gem.available? 'mysql' or Gem.available? 'mysqlplus' or Gem.available? 'activerecord-jdbc-adapter'
   require 'ventouse/mysql_compat'
   puts "Pure ruby mysql.rb driver used!"
 end
