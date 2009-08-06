@@ -11,19 +11,25 @@ class Module
   #    end
   #  end
   def declarations &blk
-    raise "There should be only one declarations block" if defined? declarations_block
-
     class << self
-      attr_accessor :declarations_block
+      unless defined? declaration_blocks
+        attr_accessor :declaration_blocks
 
-      def included(mod)
-        mod.class_eval(&declarations_block) unless declarations_block.nil?
-      rescue Exception => ex # When autoloading, you never see real exception unless this rescue
-        puts ex.message
-        puts ex.backtrace.join("\n")
-        raise ex
+        def included(mod)
+          case mod
+            when Class
+              declaration_blocks.each {|b| mod.class_eval &b }
+            when Module
+              declaration_blocks.each {|b| mod.declarations &b }
+          end
+        rescue Exception => ex # When autoloading, you never see real exception unless this rescue
+          puts ex.message
+          puts ex.backtrace.join("\n")
+          raise ex
+        end
       end
     end
-    self.declarations_block = blk
+    
+    (self.declaration_blocks ||= []) << blk
   end
 end
