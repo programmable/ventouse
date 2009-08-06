@@ -11,25 +11,23 @@ class Module
   #    end
   #  end
   def declarations &blk
-    class << self
-      unless defined? declaration_blocks
-        attr_accessor :declaration_blocks
+    unless @declaration_blocks
+      @declaration_blocks = []
 
-        def included(mod)
-          case mod
-            when Class
-              declaration_blocks.each {|b| mod.class_eval &b }
-            when Module
-              declaration_blocks.each {|b| mod.declarations &b }
-          end
-        rescue Exception => ex # When autoloading, you never see real exception unless this rescue
-          puts ex.message
-          puts ex.backtrace.join("\n")
-          raise ex
+      def self.included mod
+        case mod
+          when Class
+            @declaration_blocks.each {|b| mod.class_eval &b }
+          when Module
+            @declaration_blocks.each {|b| mod.declarations &b }
         end
+      rescue Exception => ex # When autoloading, you never see real exception unless this rescue
+        puts ex.message
+        puts ex.backtrace.join("\n")
+        raise ex
       end
     end
-    
-    (self.declaration_blocks ||= []) << blk
+
+    @declaration_blocks << blk
   end
 end
