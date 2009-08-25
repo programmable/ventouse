@@ -35,6 +35,6 @@ class Ventouse
   end
 
   def self.ensure_dir_exists dir
-    FileUtils.mkdir_p dir unless File.exist? dir and File.directory? dir
+    dir.tap { FileUtils.mkdir_p(dir) unless File.exist? dir and File.directory? dir }
   end
 end
