@@ -1,18 +1,20 @@
-module SuppressLoggingFor
-  def self.suppress_logging_for *actions
-    unless defined? @@actions_without_logging
-      @@actions_without_logging = []
+module ActionController
+  class Base
+    def self.suppress_logging_for *actions
+      unless respond_to? :actions_without_logging
+        cattr_accessor :actions_without_logging
 
-      def process(request, *)
-        if @@actions_without_logging.include?((request['action'] || 'index').to_sym)
-          logger.silence { super }
-        else
-          super
+        self.actions_without_logging = []
+
+        define_method :process do |request, *args|
+          if self.class.actions_without_logging.include?((request['action'] || 'index').to_sym)
+            logger.silence { super }
+          else
+            super
+          end
         end
       end
+      self.actions_without_logging.concat actions.flatten
     end
-    @@actions_without_logging.concat actions.flatten
   end
 end
-
-ActionController::Base.send :include, SuppressLoggingFor
