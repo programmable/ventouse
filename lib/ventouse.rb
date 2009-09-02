@@ -10,6 +10,7 @@ end
 
 if defined? ActionController
   require 'ventouse/resource_as_root'
+  require 'ventouse/suppress_logging_for'
 end
 
 unless Gem.available? 'mysql' or Gem.available? 'mysqlplus' or Gem.available? 'activerecord-jdbc-adapter'

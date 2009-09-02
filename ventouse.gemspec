@@ -2,12 +2,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ventouse}
-  s.version = "0.1.2"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ilia Ablamonov", "Artem Orlov"]
   s.date = %q{2009-08-04}
-  s.description = %q{Various usefull ruby/rails shit.}
+  s.description = %q{Various usefull ruby/rails shit}
   s.email = %q{pro@grammable.com}
   s.files = [
       "README",
@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
       "lib/ventouse/rename_type_column.rb",
       "lib/ventouse/rescue_ext.rb",
       "lib/ventouse/resource_as_root.rb",
+      "lib/ventouse/suppress_logging_for.rb",
       "lib/ventouse.rb",
       "test/declarations_test.rb"
   ]
