@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ventouse}
-  s.version = "0.1.5"
+  s.version = "0.1.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ilia Ablamonov", "Artem Orlov"]

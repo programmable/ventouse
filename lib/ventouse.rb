@@ -13,10 +13,10 @@ if defined? ActionController
   require 'ventouse/suppress_logging_for'
 end
 
-unless Gem.available? 'mysql' or Gem.available? 'mysqlplus' or Gem.available? 'activerecord-jdbc-adapter'
-  require 'ventouse/mysql_compat'
-  puts "Pure ruby mysql.rb driver used!"
-end
+#unless Gem.available? 'mysql' or Gem.available? 'mysqlplus' or Gem.available? 'activerecord-jdbc-adapter'
+#  require 'ventouse/mysql_compat'
+#  puts "Pure ruby mysql.rb driver used!"
+#end
 
 class Ventouse
   def self.disable_rails_transactions
